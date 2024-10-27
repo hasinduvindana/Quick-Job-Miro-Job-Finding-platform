@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,14 +15,35 @@
   }
 }
 
+/* src/app/globals.css */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  
+  background-image: url('/background.png'); /* Use the correct path */
+  background-color: #0a0a0a;
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repeating */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.sign-up-button {
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sign-up-button:hover {
+  background-color: #005bb5;
 }
