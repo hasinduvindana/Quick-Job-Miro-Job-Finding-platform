@@ -1,7 +1,6 @@
 // src/app/layout.tsx
 
 import React from 'react';
-import NavBar from '@/components/NavBar';
 import '../app/globals.css'; // Import global styles if you have any
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -13,7 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <body>
         {/* Navigation Bar */}
-        <NavBar />
+      
 
         {/* Main Content */}
         <main style={{ marginTop: '80px' }}>
