@@ -12,7 +12,9 @@ Job Listings: Filter and search for micro jobs by category, location, and date.
 Application Management: Job suppliers can review applicants and assign jobs.
 Ratings & Reviews: After job completion, job suppliers and employees can leave ratings and reviews to build trust.
 Responsive Design: Works seamlessly across web and mobile devices.
+
 **🛠️ Tech Stack**
+
 Frontend: Next.js (v14.2.14), React.js, Tailwind CSS
 Backend: Node.js, Express.js
 Database: MongoDB
