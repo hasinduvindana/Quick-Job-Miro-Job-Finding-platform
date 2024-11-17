@@ -1,9 +1,9 @@
-QuickJob - Micro Job Finding Platform
+**QuickJob - Micro Job Finding Platform**
 
-📌 Overview
+**📌 Overview**
 QuickJob is a web and mobile application designed to connect job suppliers with employees looking for micro jobs such as plumbing, mechanics, carpentry, and more. The platform simplifies the process of finding and offering short-term, skill-based tasks, ensuring efficient and quick job matching. Built using the latest technologies like Next.js, it provides a seamless user experience with real-time interactions and modern UI components.
 
-🚀 Features
+**🚀 Features**
 User Registration & Authentication: Secure sign-up and sign-in for job suppliers and employees.
 User Roles:
 Job Suppliers: Post micro jobs with details like job type, description, location, and payment.
@@ -12,27 +12,40 @@ Job Listings: Filter and search for micro jobs by category, location, and date.
 Application Management: Job suppliers can review applicants and assign jobs.
 Ratings & Reviews: After job completion, job suppliers and employees can leave ratings and reviews to build trust.
 Responsive Design: Works seamlessly across web and mobile devices.
-🛠️ Tech Stack
+**🛠️ Tech Stack**
 Frontend: Next.js (v14.2.14), React.js, Tailwind CSS
 Backend: Node.js, Express.js
 Database: MongoDB
 Authentication: JWT (JSON Web Tokens)
 Deployment: Vercel (for web app)
-📂 Project Structure
-r
+
+**📂 Project Structure**
+
 Copy code
+
 ├── components/           # Reusable React components
+
 ├── pages/                # Next.js pages (routes)
+
 │   ├── api/              # API routes
+
 │   ├── index.js          # Home page
+
 │   ├── sign-in.js        # Sign-in page
+
 │   └── sign-up.js        # Sign-up page
+
 ├── public/               # Static assets (images, icons, etc.)
+
 ├── styles/               # Tailwind CSS configurations
+
 ├── utils/                # Helper functions and utilities
+
 ├── package.json          # Project metadata and dependencies
+
 └── README.md             # Documentation (this file)
-🛠️ Installation & Setup
+
+**🛠️ Installation & Setup**
 To get a local copy of the project up and running, follow these steps:
 
 Prerequisites
@@ -64,18 +77,24 @@ Copy code
 npm run dev
 The application will be accessible at http://localhost:3000.
 
-📱 Mobile Compatibility
+**📱 Mobile Compatibility**
+
 The platform is fully responsive and optimized for mobile devices. To view the mobile version, simply access the website on your smartphone or use browser developer tools.
 
-🧩 Key Components
+**🧩 Key Components**
+
 Authentication: Secure login and registration system.
 Job Listings: Dynamic listings that allow suppliers to post jobs and employees to apply.
 Dashboard: A personalized dashboard for users to manage job posts, applications, and more.
-🚧 Future Enhancements
+
+**🚧 Future Enhancements**
+
 Payment Integration: Add secure payment gateways for job transactions.
 Real-Time Notifications: Notify users of new job posts and applications in real-time.
 Profile Verification: Enable profile verification to enhance trust and reliability.
-🤝 Contributing
+
+**🤝 Contributing**
+
 Contributions are welcome! Please follow these steps:
 
 Fork the repository.
@@ -83,10 +102,13 @@ Create a new branch (git checkout -b feature-branch).
 Commit your changes (git commit -m 'Add new feature').
 Push to the branch (git push origin feature-branch).
 Open a pull request.
-📝 License
+
+**📝 License**
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-📧 Contact
+**📧 Contact**
+
 For any inquiries or support, please contact:
 
 Hsindu Vindana - hasinduvindana@gmail.com
