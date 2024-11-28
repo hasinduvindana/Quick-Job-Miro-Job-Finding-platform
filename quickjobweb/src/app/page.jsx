@@ -63,7 +63,7 @@ const HomePage = () => {
           <Link href="/signin" style={styles.buttonLink}>
             Sign In
           </Link>
-          <Link href="/register" style={styles.buttonLink}>
+          <Link href="/chooserole" style={styles.buttonLink}>
             Sign Up
           </Link>
         </div>
@@ -100,7 +100,7 @@ const HomePage = () => {
 
           {/* Sign Up Button and "It's free..." text */}
           <div style={styles.ctaContainer}>
-            <Link href="/register" style={styles.ctaButton}>
+            <Link href="/chooserole" style={styles.ctaButton}>
               Sign Up
             </Link>
             <p style={styles.freeText}>It&apos;s free...</p>
