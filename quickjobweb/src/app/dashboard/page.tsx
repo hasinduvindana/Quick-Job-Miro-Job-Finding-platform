@@ -20,7 +20,7 @@ export default function Dashboard() {
   ];
 
   const ad = {
-    image: 'https://via.placeholder.com/50', // Example image
+    image: '/driver.jpg', // Example image
     title: 'Need Qualified Driver',
     category: 'Driver',
     location: 'Galle',
@@ -38,14 +38,14 @@ export default function Dashboard() {
       {/* Header */}
       <header className="header">
         <div className="logo">
-          <img src="/quickjob.png" alt="QuickJob Logo" />
+          <img src="/quickjoblogo.png" alt="QuickJob Logo" />
         </div>
         <div className="welcome">
           <h1>Welcome to QuickJob</h1>
         </div>
         <div className="user-settings">
           <img 
-            src="https://via.placeholder.com/40" 
+            src="/usericon.png" 
             alt="User Icon" 
             className="user-icon"
           />
