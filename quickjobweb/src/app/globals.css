@@ -2,34 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: linear-gradient(135deg, #0a0a0a, #004d00, #f7e600); /* Black, Green, Yellow gradient */
+  --foreground: #202020; /* White text for readability */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: linear-gradient(135deg, #000000, #003300, #e6d300); /* Darker tones for dark mode */
+    --foreground: #0e0f0e; /* Softer light green for text */
   }
 }
 
 /* src/app/globals.css */
 body {
-  
-  background-image: url('/background.png'); /* Use the correct path */
-  background-color: #0a0a0a;
+  /*background: var(--background);*/ /* Apply the gradient theme */
   background-size: cover; /* Cover the entire viewport */
-  background-position: center; /* Center the image */
+  background-position: center; /* Center the gradient */
   background-repeat: no-repeat; /* Prevent repeating */
+  color: var(--foreground); /* Set text color */
+  background: linear-gradient(135deg, #000000, #003300, #e6d300);
+  color: #ffffff; /* Ensures text is readable on the dark background */
+  font-family: "Poppins", sans-serif;
 }
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -45,5 +48,5 @@ html {
 }
 
 .sign-up-button:hover {
-  background-color: #005bb5;
+  background-color: #0681fc;
 }

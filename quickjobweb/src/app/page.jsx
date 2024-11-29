@@ -112,7 +112,7 @@ const HomePage = () => {
       <section id="about" style={styles.aboutSection}>
         <div style={styles.imageContainer}>
           <Image
-            src="/aboutimg.png"
+            src="/quickjoblogo.png"
             alt="About Image"
             width={600}
             height={400}
@@ -294,8 +294,8 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     gap: "4rem",
-    backgroundColor: "#F4F4F9",
-    backgroundImage:"url(/background.png)",
+    background: "linear-gradient(135deg, #000000, #003300, #e6d300)", // Corrected property
+    
   },
   aboutImage: {
     maxWidth: "100%",
@@ -311,7 +311,7 @@ const styles = {
     maxWidth: "600px",
   },
   aboutText: {
-    backgroundColor: "#ffffff",  // Background color (you can customize this)
+    backgroundColor: "#A9A9A9",  // Background color (you can customize this)
     padding: "2.5rem",  // Padding for spacing
     borderRadius: "15px",  // Rounded corners
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",  // Optional: adds subtle shadow for effect
@@ -324,8 +324,8 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     padding: "4rem 2rem",
-    backgroundColor: "#F9F9F9",
-    backgroundImage:"url(/background.png)",
+    background: "linear-gradient(135deg, #000000, #003300, #e6d300)", // Corrected property
+    
   },
   contactTitle: {
     fontSize: "3rem",
