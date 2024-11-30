@@ -44,7 +44,7 @@ export default function JobListings() {
       {/* Application Form */}
       <div className="max-w-md w-full p-6 rounded-xl shadow-xl bg-gray-800 border border-gray-600">
         <h2 className="text-2xl font-semibold mb-6 text-gray-200 text-center">
-          Your Application
+          Edit Account
         </h2>
         <input
           type="text"
