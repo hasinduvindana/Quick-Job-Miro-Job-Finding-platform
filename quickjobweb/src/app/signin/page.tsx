@@ -100,7 +100,7 @@ const SignInPage: React.FC = () => {
 
         <p className="text-center mt-4">
           Don&apos;t have an account?{' '}
-          <a href="/register" className="text-blue-600 hover:underline">
+          <a href="/chooserole" className="text-blue-600 hover:underline">
             Sign Up
           </a>
         </p>
