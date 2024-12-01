@@ -209,6 +209,7 @@ export default function Dashboard() {
           padding: 10px;
           border: 1px solid #ccc;
           border-radius: 5px;
+          color: black;
         }
         .filters {
           display: flex;
@@ -218,6 +219,7 @@ export default function Dashboard() {
           padding: 10px;
           border: 1px solid #ccc;
           border-radius: 5px;
+          color: black;
         }
         .search-button {
           background-color: #2c7a7b;

@@ -1,0 +1,158 @@
+[debug] [2024-11-30T15:34:12.327Z] ----------------------------------------------------------------------
+[debug] [2024-11-30T15:34:12.329Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hasin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-11-30T15:34:12.329Z] CLI Version:   13.27.0
+[debug] [2024-11-30T15:34:12.330Z] Platform:      win32
+[debug] [2024-11-30T15:34:12.330Z] Node Version:  v21.5.0
+[debug] [2024-11-30T15:34:12.330Z] Time:          Sat Nov 30 2024 21:04:12 GMT+0530 (India Standard Time)
+[debug] [2024-11-30T15:34:12.330Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-30T15:34:12.337Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-30T15:34:12.337Z] > authorizing via signed-in user (vindanahasindu@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\NIBM\GitHub_Projects\Quick-Job-Miro-Job-Finding-platform\quickjobweb
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-11-30T15:35:15.670Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:15.670Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:15.671Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-11-30T15:35:16.767Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-11-30T15:35:16.767Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project quickjobdb (quickjobdb) 
+[info] 
+=== Firestore Setup
+[debug] [2024-11-30T15:35:22.367Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:22.367Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:22.367Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/firestore.googleapis.com [none]
+[debug] [2024-11-30T15:35:22.367Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/firestore.googleapis.com x-goog-quota-user=projects/quickjobdb
+[debug] [2024-11-30T15:35:24.194Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/firestore.googleapis.com 200
+[debug] [2024-11-30T15:35:24.194Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/firestore.googleapis.com [omitted]
+[debug] [2024-11-30T15:35:24.195Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:24.195Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:24.195Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default) [none]
+[debug] [2024-11-30T15:35:24.970Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default) 200
+[debug] [2024-11-30T15:35:24.970Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default) {"name":"projects/quickjobdb/databases/(default)","uid":"a0ac02c8-1c8c-4430-8469-d73ed16e4599","createTime":"2024-11-30T15:33:23.803802Z","updateTime":"2024-11-30T15:33:23.803802Z","locationId":"asia-south2","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2024-11-30T15:33:23.803802Z","appEngineIntegrationMode":"DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","etag":"IMqph4OxhIoDMJq12smwhIoD"}
+[debug] [2024-11-30T15:35:24.970Z] database_type: FIRESTORE_NATIVE
+[debug] [2024-11-30T15:35:24.970Z] database_type: FIRESTORE_NATIVE
+[debug] [2024-11-30T15:35:24.970Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-30T15:35:24.971Z] > authorizing via signed-in user (vindanahasindu@gmail.com)
+[debug] [2024-11-30T15:35:24.971Z] [iam] checking project quickjobdb for permissions ["firebase.projects.get"]
+[debug] [2024-11-30T15:35:24.971Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:24.971Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:24.971Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions [none]
+[debug] [2024-11-30T15:35:24.971Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions x-goog-quota-user=projects/quickjobdb
+[debug] [2024-11-30T15:35:24.971Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-30T15:35:26.326Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions 200
+[debug] [2024-11-30T15:35:26.326Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-11-30T15:35:41.432Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:41.432Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:41.432Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/quickjobdb/releases pageSize=10&pageToken=
+[debug] [2024-11-30T15:35:43.074Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/quickjobdb/releases 200
+[debug] [2024-11-30T15:35:43.074Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/quickjobdb/releases {"releases":[{"name":"projects/quickjobdb/releases/cloud.firestore","rulesetName":"projects/quickjobdb/rulesets/c8828cb8-c806-4052-a9fa-3d8e3a3b7c44","createTime":"2024-11-30T15:33:33.879177Z","updateTime":"2024-11-30T15:33:33.879177Z"}]}
+[debug] [2024-11-30T15:35:43.074Z] Found ruleset: projects/quickjobdb/rulesets/c8828cb8-c806-4052-a9fa-3d8e3a3b7c44
+[debug] [2024-11-30T15:35:43.074Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:43.074Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:43.074Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/quickjobdb/rulesets/c8828cb8-c806-4052-a9fa-3d8e3a3b7c44 [none]
+[debug] [2024-11-30T15:35:43.722Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/quickjobdb/rulesets/c8828cb8-c806-4052-a9fa-3d8e3a3b7c44 200
+[debug] [2024-11-30T15:35:43.722Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/quickjobdb/rulesets/c8828cb8-c806-4052-a9fa-3d8e3a3b7c44 [omitted]
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-11-30T15:35:48.401Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:48.401Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:48.401Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:48.402Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:48.402Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2024-11-30T15:35:48.404Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2024-11-30T15:35:49.153Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2024-11-30T15:35:49.153Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2024-11-30T15:35:49.412Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2024-11-30T15:35:49.412Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/quickjobdb/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/quickjobdb/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] 
+=== Functions Setup
+[debug] [2024-11-30T15:35:49.414Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-30T15:35:49.414Z] > authorizing via signed-in user (vindanahasindu@gmail.com)
+[debug] [2024-11-30T15:35:49.414Z] [iam] checking project quickjobdb for permissions ["firebase.projects.get"]
+[debug] [2024-11-30T15:35:49.414Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:49.414Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:49.415Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions [none]
+[debug] [2024-11-30T15:35:49.415Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions x-goog-quota-user=projects/quickjobdb
+[debug] [2024-11-30T15:35:49.415Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-30T15:35:50.640Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions 200
+[debug] [2024-11-30T15:35:50.640Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/quickjobdb:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-30T15:35:50.640Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:50.641Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:50.641Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:50.641Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:50.641Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-11-30T15:35:50.641Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/quickjobdb
+[debug] [2024-11-30T15:35:50.643Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-11-30T15:35:50.643Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/quickjobdb
+[debug] [2024-11-30T15:35:52.362Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/runtimeconfig.googleapis.com 200
+[debug] [2024-11-30T15:35:52.362Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-11-30T15:35:52.364Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com 200
+[debug] [2024-11-30T15:35:52.364Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2024-11-30T15:35:52.364Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:52.364Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:35:52.364Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2024-11-30T15:35:52.364Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/quickjobdb
+[debug] [2024-11-30T15:35:53.882Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2024-11-30T15:35:53.882Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2024-11-30T15:36:03.891Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:36:03.891Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:36:03.891Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-11-30T15:36:03.891Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/quickjobdb
+[debug] [2024-11-30T15:36:05.838Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com 200
+[debug] [2024-11-30T15:36:05.838Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/quickjobdb/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] +  Wrote functions/package.json 
+[info] +  Wrote functions/.eslintrc.js 
+[info] +  Wrote functions/tsconfig.json 
+[info] +  Wrote functions/tsconfig.dev.json 
+[info] +  Wrote functions/src/index.ts 
+[info] +  Wrote functions/.gitignore 
+[info] 
+=== Hosting Setup
+[debug] [2024-11-30T15:37:54.649Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:37:54.649Z] Checked if tokens are valid: true, expires at: 1732984205148
+[debug] [2024-11-30T15:37:54.649Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/quickjobdb [none]
+[debug] [2024-11-30T15:37:55.198Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/quickjobdb 200
+[debug] [2024-11-30T15:37:55.199Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/quickjobdb {"projectId":"quickjobdb","projectNumber":"322145649249","displayName":"quickjobdb","name":"projects/quickjobdb","resources":{"hostingSite":"quickjobdb"},"state":"ACTIVE","etag":"1_92e91ab7-750f-4e91-8daa-aaf08e8ed9ee"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

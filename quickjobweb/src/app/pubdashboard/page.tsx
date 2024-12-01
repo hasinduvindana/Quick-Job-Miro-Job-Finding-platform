@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 
-// Define the Job interface
 interface Job {
   id: number;
   title: string;
@@ -14,7 +13,7 @@ interface Job {
 }
 
 const JobManagement = () => {
-  const [jobPosts, setJobPosts] = useState<Job[]>([]); // Explicitly typing jobPosts
+  const [jobPosts, setJobPosts] = useState<Job[]>([]);
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -26,20 +25,17 @@ const JobManagement = () => {
     username: "JohnDoe",
     email: "john@example.com",
   });
-  const [isEditing, setIsEditing] = useState<number | null>(null); // Track editing state
+  const [isEditing, setIsEditing] = useState<number | null>(null);
 
-  // Handle form input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  // Handle file input change
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, image: e.target.files ? e.target.files[0] : null });
   };
 
-  // Get current location using the browser's geolocation API
   const handleGetLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -56,10 +52,8 @@ const JobManagement = () => {
     }
   };
 
-  // Add or update a job post
   const handleSaveJob = () => {
     if (isEditing !== null) {
-      // Update existing job
       setJobPosts((prev) =>
         prev.map((job) =>
           job.id === isEditing ? { ...job, ...form, date: new Date().toISOString() } : job
@@ -67,7 +61,6 @@ const JobManagement = () => {
       );
       setIsEditing(null);
     } else {
-      // Add new job
       const newJob: Job = {
         ...form,
         id: Date.now(),
@@ -76,7 +69,6 @@ const JobManagement = () => {
       setJobPosts([...jobPosts, newJob]);
     }
 
-    // Reset form after saving
     setForm({
       title: "",
       description: "",
@@ -86,12 +78,10 @@ const JobManagement = () => {
     });
   };
 
-  // Delete a job post
   const handleDeleteJob = (id: number) => {
     setJobPosts(jobPosts.filter((job) => job.id !== id));
   };
 
-  // Set form for editing a job post
   const handleEditJob = (id: number) => {
     const jobToEdit = jobPosts.find((job) => job.id === id);
     if (jobToEdit) {
@@ -106,7 +96,6 @@ const JobManagement = () => {
     }
   };
 
-  // Edit user account
   const handleAccountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUserAccount({ ...userAccount, [name]: value });
@@ -114,7 +103,6 @@ const JobManagement = () => {
 
   return (
     <div className="container">
-      {/* Edit Account Section */}
       <div className="form-group">
         <h2 className="centered-red-text">Edit Account</h2>
         <label>Username</label>
@@ -133,7 +121,6 @@ const JobManagement = () => {
         />
       </div>
 
-      {/* Job Posting Form */}
       <div className="form-group">
         <h2 className="centered-red-text">
           {isEditing !== null ? "Edit Job Post" : "Create Job Post"}
@@ -181,7 +168,6 @@ const JobManagement = () => {
         {isEditing !== null ? "Update Job" : "Save Job"}
       </button>
 
-      {/* Job Posts Display */}
       <h2>Job Posts</h2>
       {jobPosts.length > 0 ? (
         <ul>
@@ -208,7 +194,6 @@ const JobManagement = () => {
       )}
 
       <style jsx>{`
-        /* Styles */
         .container {
           width: 80%;
           margin: 0 auto;
@@ -224,6 +209,7 @@ const JobManagement = () => {
           font-weight: bold;
           margin-bottom: 5px;
           display: block;
+          color: black;
         }
         input,
         textarea {
@@ -232,6 +218,12 @@ const JobManagement = () => {
           margin-bottom: 10px;
           border-radius: 5px;
           border: 1px solid #ccc;
+          color: black;
+          background-color: white;
+        }
+        input::placeholder,
+        textarea::placeholder {
+          color: black;
         }
         button {
           padding: 10px 20px;

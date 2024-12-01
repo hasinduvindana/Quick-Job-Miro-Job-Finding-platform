@@ -4,6 +4,23 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { checkUsernameExists, addEmpDetails, addUserLogin } from '../../firebase/firestoreService'; // Import Firebase functions
+
+// Define types for data
+interface EmpDetails {
+  name: string;
+  phoneNumber: string;
+  location: string;
+  skill: string[];
+  experience: string;
+  username: string;
+}
+
+interface UserLogin {
+  username: string;
+  email: string;
+  password: string;
+}
 
 const EmpRegisterPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +36,6 @@ const EmpRegisterPage: React.FC = () => {
   });
 
   const [error, setError] = useState<string | null>(null);
-  const [passwordMatched, setPasswordMatched] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
@@ -27,7 +43,10 @@ const EmpRegisterPage: React.FC = () => {
     const { name, value } = e.target;
 
     if (name === 'skill') {
-      const selectedSkills = Array.from(e.target.selectedOptions, (option) => option.value);
+      const selectedSkills = Array.from(
+        (e.target as HTMLSelectElement).selectedOptions,
+        (option) => (option as HTMLOptionElement).value
+      );
       setFormData((prevState) => ({
         ...prevState,
         skill: selectedSkills,
@@ -37,10 +56,6 @@ const EmpRegisterPage: React.FC = () => {
         ...prevState,
         [name]: value,
       }));
-    }
-
-    if (name === 'password' || name === 'confirmPassword') {
-      setPasswordMatched(formData.password === formData.confirmPassword);
     }
   };
 
@@ -58,10 +73,36 @@ const EmpRegisterPage: React.FC = () => {
     }
 
     try {
-      console.log('Registering with', formData);
+      const usernameExists = await checkUsernameExists(formData.username);
+      if (usernameExists) {
+        setError('Username already exists. Please choose another.');
+        return;
+      }
+
+      // Create employee data object
+      const empData: EmpDetails = {
+        name: formData.name,
+        phoneNumber: formData.phoneNumber,
+        location: formData.location,
+        skill: formData.skill,
+        experience: formData.experience,
+        username: formData.username,
+      };
+      await addEmpDetails(empData);
+
+      // Create user login data object
+      const loginData: UserLogin = {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+      };
+      await addUserLogin(loginData);
+
+      console.log('Data saved successfully!');
       router.push('/signin');
-    } catch (err) {
+    } catch (error) {
       setError('An error occurred. Please try again.');
+      console.error(error);
     }
   };
 
@@ -78,7 +119,6 @@ const EmpRegisterPage: React.FC = () => {
       confirmPassword: '',
     });
     setError(null);
-    setPasswordMatched(true);
   };
 
   const fetchLocation = () => {
@@ -251,8 +291,8 @@ const EmpRegisterPage: React.FC = () => {
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-3 text-gray-600"
                   onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute top-2 right-2 text-gray-600"
                 >
                   {showPassword ? 'Hide' : 'Show'}
                 </button>
@@ -263,43 +303,36 @@ const EmpRegisterPage: React.FC = () => {
             <div>
               <label className="block text-gray-900 font-medium">Confirm Password</label>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="confirmPassword"
-                placeholder="Re-enter your password"
+                placeholder="Confirm your password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className={`w-full p-3 border rounded-lg text-black ${
-                  passwordMatched ? 'border-green-500' : 'border-red-500'
-                }`}
+                className="w-full p-3 border rounded-lg text-black"
                 required
               />
-              {!passwordMatched && (
-                <p className="text-red-500 mt-2 text-sm">Passwords do not match</p>
-              )}
             </div>
 
             {/* Submit Button */}
-            <div className="flex justify-between">
-              <button
-                type="button"
-                onClick={clearForm}
-                className="w-[48%] p-3 bg-red-500 text-white rounded-lg"
-              >
-                Clear Form
-              </button>
-              <button
-                type="submit"
-                className="w-[48%] p-3 bg-blue-500 text-white rounded-lg"
-              >
-                Register
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="w-full p-3 bg-green-600 text-white rounded-lg hover:bg-green-500"
+            >
+              Register
+            </button>
 
-            <p className="mt-4">
+            {/* Clear Button */}
+            <button
+              type="button"
+              onClick={clearForm}
+              className="w-full p-3 bg-gray-400 text-white rounded-lg hover:bg-gray-300 mt-4"
+            >
+              Clear
+            </button>
+
+            <p className="text-center mt-4">
               Already have an account?{' '}
-              <Link href="/signin" className="text-blue-500 hover:underline">
-                Sign In
-              </Link>
+              <Link href="/signin" className="text-green-600 font-bold">Sign In</Link>
             </p>
           </form>
         </div>

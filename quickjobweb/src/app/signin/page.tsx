@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { checkUserCredentials } from '../../firebase/firestoreService';
 
 const SignInPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
@@ -17,9 +19,25 @@ const SignInPage: React.FC = () => {
       return;
     }
 
-    // Simulate a successful login
-    localStorage.setItem('user', JSON.stringify({ email }));
-    router.push('/dashboard');
+    try {
+      const user = await checkUserCredentials(email, password);
+      if (!user) {
+        setError('Invalid email or password');
+        return;
+      }
+
+      const { username } = user;
+      if (username.startsWith('emp')) {
+        router.push('/empdashboard');
+      } else if (username.startsWith('pub')) {
+        router.push('/pubdashboard');
+      } else {
+        setError('Invalid user type');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('An error occurred. Please try again.');
+    }
   };
 
   return (
@@ -44,7 +62,7 @@ const SignInPage: React.FC = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-3 mt-2 border border-gray-300 rounded-lg text-black"
               placeholder="you@example.com"
               required
             />
@@ -53,15 +71,24 @@ const SignInPage: React.FC = () => {
             <label htmlFor="password" className="block text-gray-700">
               Password
             </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              placeholder="Your password"
-              required
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-3 mt-2 border border-gray-300 rounded-lg text-black"
+                placeholder="Your password"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-3 right-3 text-gray-600"
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
+            </div>
           </div>
           <button
             type="submit"

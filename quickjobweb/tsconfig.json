@@ -17,10 +17,20 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./src",  // Set the base URL to the 'src' folder
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"],    // Existing path alias
+      "firebase/*": ["src/firebase/*"]  // New path alias for 'firebase'
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.jsx", "src/components/NavBar.jsx", "src/app/dashboard/page.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/page.jsx",
+    "src/components/NavBar.jsx",
+    "src/app/dashboard/page.jsx"
+  ],
   "exclude": ["node_modules"]
 }
