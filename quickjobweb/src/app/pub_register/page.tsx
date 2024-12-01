@@ -4,7 +4,20 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image'; // Import Image component
+import { checkUsernameExists, addPubDetails, addUserLogin } from '../../firebase/firestoreService'; // Import Firebase functions
+
+// Define types for data
+interface PubDetails {
+  name: string;
+  phoneNumber: string;
+  username: string;
+}
+
+interface UserLogin {
+  username: string;
+  email: string;
+  password: string;
+}
 
 const PubRegisterPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -17,10 +30,7 @@ const PubRegisterPage: React.FC = () => {
   });
 
   const [error, setError] = useState<string | null>(null);
-  const [passwordMatched, setPasswordMatched] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,10 +40,6 @@ const PubRegisterPage: React.FC = () => {
       ...prevState,
       [name]: value,
     }));
-
-    if (name === 'password' || name === 'confirmPassword') {
-      setPasswordMatched(formData.password === formData.confirmPassword);
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -45,10 +51,31 @@ const PubRegisterPage: React.FC = () => {
     }
 
     try {
-      console.log('Registering publisher with', formData);
+      const usernameExists = await checkUsernameExists(formData.username);
+      if (usernameExists) {
+        setError('Username already exists. Please choose another.');
+        return;
+      }
+
+      const pubData: PubDetails = {
+        name: formData.name,
+        phoneNumber: formData.phoneNumber,
+        username: formData.username,
+      };
+      await addPubDetails(pubData);
+
+      const loginData: UserLogin = {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+      };
+      await addUserLogin(loginData);
+
+      console.log('Data saved successfully!');
       router.push('/signin');
-    } catch (err) {
+    } catch (error) {
       setError('An error occurred. Please try again.');
+      console.error(error);
     }
   };
 
@@ -62,7 +89,6 @@ const PubRegisterPage: React.FC = () => {
       confirmPassword: '',
     });
     setError(null);
-    setPasswordMatched(true);
   };
 
   return (
@@ -71,24 +97,19 @@ const PubRegisterPage: React.FC = () => {
       style={{ background: 'linear-gradient(135deg, #000000, #003300, #e6d300)' }}
     >
       <div className="flex flex-wrap w-full max-w-5xl bg-white bg-opacity-70 rounded-lg shadow-lg overflow-hidden">
-        {/* Left Side - GIF */}
         <div className="w-full md:w-1/3 flex justify-center items-center">
-          <Image
+          <img
             src="https://quickboarding.com/wp-content/uploads/sites/27/2021/10/Onboarding.gif"
             alt="Onboarding GIF"
-            width={300}
-            height={300}
-            className="object-cover"
+            className="object-cover w-[300px] h-[300px]"
           />
         </div>
 
-        {/* Right Side - Form */}
         <div className="w-full md:w-2/3 p-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Publisher Register</h2>
           {error && <p className="text-red-500 mb-4">{error}</p>}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Name */}
             <div>
               <label className="block text-gray-900 font-medium">Full Name</label>
               <input
@@ -102,7 +123,6 @@ const PubRegisterPage: React.FC = () => {
               />
             </div>
 
-            {/* Phone Number */}
             <div>
               <label className="block text-gray-900 font-medium">Phone Number</label>
               <input
@@ -116,7 +136,6 @@ const PubRegisterPage: React.FC = () => {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label className="block text-gray-900 font-medium">Email</label>
               <input
@@ -130,7 +149,6 @@ const PubRegisterPage: React.FC = () => {
               />
             </div>
 
-            {/* Username */}
             <div>
               <label className="block text-gray-900 font-medium">Username</label>
               <input
@@ -144,7 +162,6 @@ const PubRegisterPage: React.FC = () => {
               />
             </div>
 
-            {/* Password */}
             <div>
               <label className="block text-gray-900 font-medium">Password</label>
               <div className="relative">
@@ -160,125 +177,48 @@ const PubRegisterPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-3 flex items-center"
+                  className="absolute top-2 right-2 text-gray-600"
                 >
-                  {showPassword ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      className="w-5 h-5 text-gray-700"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3.98 8.972a11.045 11.045 0 0115.071 0m-15.07 6.056a11.045 11.045 0 0115.07 0m-9.82-4.47a2.992 2.992 0 114.242 4.242 2.992 2.992 0 01-4.243-4.242z"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      className="w-5 h-5 text-gray-700"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3.98 8.972a11.045 11.045 0 0115.071 0m-15.07 6.056a11.045 11.045 0 0115.07 0m-9.82-4.47a2.992 2.992 0 114.242 4.242 2.992 2.992 0 01-4.243-4.242z"
-                      />
-                    </svg>
-                  )}
+                  {showPassword ? 'Hide' : 'Show'}
                 </button>
               </div>
             </div>
 
-            {/* Confirm Password */}
             <div>
               <label className="block text-gray-900 font-medium">Confirm Password</label>
-              <div className="relative">
-                <input
-                  type={showConfirmPassword ? 'text' : 'password'}
-                  name="confirmPassword"
-                  placeholder="Re-enter your password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  className={`w-full p-3 border rounded-lg text-black ${
-                    passwordMatched ? 'border-green-500' : 'border-red-500'
-                  }`}
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute inset-y-0 right-3 flex items-center"
-                >
-                  {showConfirmPassword ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      className="w-5 h-5 text-gray-700"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3.98 8.972a11.045 11.045 0 0115.071 0m-15.07 6.056a11.045 11.045 0 0115.07 0m-9.82-4.47a2.992 2.992 0 114.242 4.242 2.992 2.992 0 01-4.243-4.242z"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      className="w-5 h-5 text-gray-700"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3.98 8.972a11.045 11.045 0 0115.071 0m-15.07 6.056a11.045 11.045 0 0115.07 0m-9.82-4.47a2.992 2.992 0 114.242 4.242 2.992 2.992 0 01-4.243-4.242z"
-                      />
-                    </svg>
-                  )}
-                </button>
-              </div>
-              {!passwordMatched && (
-                <p className="text-red-500 text-sm">Passwords do not match.</p>
-              )}
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className="w-full p-3 border rounded-lg text-black"
+                required
+              />
             </div>
 
-            {/* Submit Button */}
-            <div className="flex justify-between items-center">
-              <button
-                type="submit"
-                className="w-full bg-green-500 text-white p-3 rounded-lg"
-                disabled={!passwordMatched}
-              >
-                Register
-              </button>
-              <button
-                type="button"
-                onClick={clearForm}
-                className="w-full bg-gray-300 text-black p-3 rounded-lg"
-              >
-                Clear
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="w-full p-3 bg-green-600 text-white rounded-lg hover:bg-green-500"
+            >
+              Register
+            </button>
+
+            <button
+              type="button"
+              onClick={clearForm}
+              className="w-full p-3 bg-gray-400 text-white rounded-lg hover:bg-gray-300 mt-4"
+            >
+              Clear
+            </button>
+
+            <p className="text-center mt-4">
+              Already have an account?{' '}
+              <Link href="/signin" className="text-green-600 font-bold">
+                Sign In
+              </Link>
+            </p>
           </form>
-
-          {/* Existing Links */}
-          <div className="mt-4">
-            <p className="text-gray-900">Already have an account?</p>
-            <Link href="/signin" className="text-green-500">Sign In</Link>
-          </div>
         </div>
       </div>
     </div>
