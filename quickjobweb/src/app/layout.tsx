@@ -1,13 +1,19 @@
 // src/app/layout.tsx
 
+"use client"; // Add this line at the top
+
 import React from 'react';
+<<<<<<< Updated upstream
 import '../app/globals.css'; // Import global styles if you have any
+=======
+import NavBar from '@/components/NavBar';
+import '../app/globals.css';
+>>>>>>> Stashed changes
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <head>
-        {/* You can add meta tags, title, and other head elements here */}
         <title>QuickJob</title>
       </head>
       <body>
