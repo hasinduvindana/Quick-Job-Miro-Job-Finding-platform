@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    images: {
+      domains: ['i.gifer.com', 'quickboarding.com'], // Add both external image domains
+    },
+  };
+  
+  export default nextConfig;
+  
