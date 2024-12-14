@@ -1,14 +1,8 @@
 "use client";
 
-<<<<<<< Updated upstream
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-=======
-"use client";
-
-import React from 'react';
->>>>>>> Stashed changes
 
 const HomePage = () => {
   const images = ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg"];
