@@ -47,11 +47,11 @@ export default function JobListings() {
     setJobPostData((prev) => ({ ...prev, isUrgent: checked }));
   };
 
-  const handleCreateJobPost = () => {
+  const handleSubmitJobPost = () => {
     const photoName = jobPostData.photo
       ? jobPostData.photo.name
       : "No photo uploaded";
-    alert(`Job Post Created:
+    alert(`Job Post Submitted:
       Title: ${jobPostData.title}
       Description: ${jobPostData.description}
       Location: ${jobPostData.location}
@@ -61,10 +61,6 @@ export default function JobListings() {
       Urgent: ${jobPostData.isUrgent ? "Yes" : "No"}
       Photo: ${photoName}
     `);
-  };
-
-  const handleDeleteJobPost = () => {
-    alert("Delete Job Post functionality coming soon!");
   };
 
   return (
@@ -122,7 +118,7 @@ export default function JobListings() {
           onChange={handleInputChange}
           className="w-full mb-4 px-4 py-2 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-700 text-gray-200"
         />
-        
+
         {/* Job Salary Input */}
         <label
           htmlFor="salary"
@@ -138,7 +134,7 @@ export default function JobListings() {
           onChange={handleInputChange}
           className="w-full mb-4 px-4 py-2 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-700 text-gray-200"
         />
-        
+
         {/* Job Category Dropdown */}
         <label
           htmlFor="category"
@@ -163,7 +159,7 @@ export default function JobListings() {
           <option value="Home Advisor">Home Advisor</option>
           <option value="Cleaner">Cleaner</option>
         </select>
-        
+
         {/* Photo Upload Input */}
         <label
           htmlFor="photo"
@@ -229,16 +225,10 @@ export default function JobListings() {
         </div>
 
         <button
-          onClick={handleCreateJobPost}
-          className="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-800 transition duration-200 mb-4"
+          onClick={handleSubmitJobPost}
+          className="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-800 transition duration-200"
         >
-          Edit Account
-        </button>
-        <button
-          onClick={handleDeleteJobPost}
-          className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-200"
-        >
-          Delete Account
+          Submit
         </button>
       </div>
     </div>
