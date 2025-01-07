@@ -27,6 +27,10 @@ export default function PublicDashboard() {
     "Helper", "Driver", "Mechanic", "Carpenter", "Tailor", "Cook",
   ];
 
+  const handleAccount = () => {
+    router.push("/pub_editaccount"); // Correct path for redirection
+  };
+
   const handleApply = (job: { id?: number; title: any; location: any; image?: string; }) => {
     alert(`Viewing applicants for ${job.title} in ${job.location}`);
   };
@@ -75,7 +79,7 @@ export default function PublicDashboard() {
 
         {/* Buttons for Account, Create Job, and Logout */}
         <div className="buttons">
-          <button className="account-button">
+          <button onClick={handleAccount} className="account-button">
             <img src="/usericon.png" alt="User Icon" className="user-icon" />
             Account
           </button>
@@ -92,7 +96,7 @@ export default function PublicDashboard() {
       <div className="search-section">
         <input
           type="text"
-          placeholder="What are you looking for?"
+          placeholder="What do you want to view?"
           className="search-bar"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)} />
@@ -185,8 +189,8 @@ export default function PublicDashboard() {
           gap: 10px;
         }
         .user-icon {
-          width: 20px;
-          height: 20px;
+          width: 30px;
+          height: 30px;
         }
         .create-job-button, .logout-button {
           background-color: #e74c3c;
