@@ -410,6 +410,239 @@ const AdminDashboard = () => {
           </div>
         )}
               
+              {currentSection === "editPublisher" && (
+          <div>
+            <h2 className="text-xl font-bold mb-4">Edit Publisher</h2>
+
+            {/* Add New Publisher Section */}
+            <h3 className="text-lg font-semibold mb-4">Add New Publisher</h3>
+            <form className="space-y-4">
+              {/* Full Name */}
+          <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Full Name</label>
+            <input
+              type="text"
+              name="name"
+             
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+              
+          {/* Phone Number */}
+          <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Phone Number</label>
+            <input
+              type="tel"
+              name="contact"
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+         {/* Username */}
+         <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="should start with pub@"
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+
+              {/* Email Address */}
+          <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+
+             {/* Password */}
+<div className="p-2 rounded-lg shadow-md relative">
+  <label className="block mb-1 text-white-800">Password</label>
+  <input
+    type={passwordVisible ? "text" : "password"}
+    name="password"
+    className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+  />
+  {/* Show/Hide Password Button */}
+  <button
+    type="button"
+    onClick={() => setPasswordVisible(!passwordVisible)}
+    className="absolute right-4 top-3/4 transform -translate-y-1/2 text-white-500"
+  >
+    {passwordVisible ? "Hide" : "Show"}
+  </button>
+</div>
+
+
+           {/* Confirm Password */}
+<div className="p-2 rounded-lg shadow-md relative">
+  <label className="block mb-1 text-white-800">Confirm Password</label>
+  <input
+    type={confirmPasswordVisible ? "text" : "password"}
+    name="confirmPassword"
+    className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+  />
+  {/* Show/Hide Confirm Password Button */}
+  <button
+    type="button"
+    onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+    className="absolute right-4 top-3/4 transform -translate-y-1/2 text-white-500"
+  >
+    {confirmPasswordVisible ? "Hide" : "Show"}
+  </button>
+</div>
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+              >
+                Add New Publisher
+              </button>
+            </form>
+
+              {/* Horizontal Line */}
+        <hr className="my-6 border-t-2 border-gray-300 w-11/12 mx-auto" />
+
+            {/* Update Publisher Section */}
+            <h3 className="text-lg font-semibold mt-8 mb-4">Update Publisher</h3>
+            <form className="space-y-4">
+              {/* Username */}
+           <div className="p-2 rounded-lg shadow-md relative">
+           <label className="block mb-1 text-white-800">Search Username</label>
+           <div className="flex items-center">
+           <input
+           type="text"
+            name="username"
+           placeholder="Enter Username"
+            className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+          />
+         <button
+         onClick={() => alert(`Searching for username: $`)} // Placeholder for actual search functionality
+         className="ml-2 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition duration-200"
+          aria-label="Search Username"
+          >
+          Search
+          </button>
+          </div>
+          </div>
+ {/* Full Name */}
+ <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Full Name</label>
+            <input
+              type="text"
+              name="name"
+             
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+              
+          {/* Phone Number */}
+          <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Phone Number</label>
+            <input
+              type="tel"
+              name="contact"
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+         {/* Username */}
+         <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="should start with pub@"
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+
+              {/* Email Address */}
+          <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+
+            {/* Password */}
+<div className="p-2 rounded-lg shadow-md relative">
+  <label className="block mb-1 text-white-800">Password</label>
+  <input
+    type={passwordVisible ? "text" : "password"}
+    name="password"
+    className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+  />
+  {/* Show/Hide Password Button */}
+  <button
+    type="button"
+    onClick={() => setPasswordVisible(!passwordVisible)}
+    className="absolute right-4 top-3/4 transform -translate-y-1/2 text-white-500"
+  >
+    {passwordVisible ? "Hide" : "Show"}
+  </button>
+</div>
+
+
+           {/* Confirm Password */}
+<div className="p-2 rounded-lg shadow-md relative">
+  <label className="block mb-1 text-white-800">Confirm Password</label>
+  <input
+    type={confirmPasswordVisible ? "text" : "password"}
+    name="confirmPassword"
+    className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+  />
+  {/* Show/Hide Confirm Password Button */}
+  <button
+    type="button"
+    onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+    className="absolute right-4 top-3/4 transform -translate-y-1/2 text-white-500"
+  >
+    {confirmPasswordVisible ? "Hide" : "Show"}
+  </button>
+</div>
+
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+              >
+                Update Publisher
+              </button>
+            </form>
+
+  {/* Horizontal Line */}
+  <hr className="my-6 border-t-2 border-gray-300 w-11/12 mx-auto" />
+
+            {/* Delete Employee Section */}
+            <h3 className="text-lg font-semibold mt-8 mb-4">Delete Publisher</h3>
+            <form className="space-y-4">
+              {/* Username */}
+        <div className="p-2 rounded-lg shadow-md">
+            <label className="block mb-1 text-white-800">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Enter Username"
+              className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+
+              {/* Delete Button */}
+              <button
+                type="button"
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+              >
+                Delete Publisher
+              </button>
+            </form>
+          </div>
+        )}        
       </div>
     </div>
   );
