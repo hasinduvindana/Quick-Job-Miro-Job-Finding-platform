@@ -652,7 +652,14 @@ const AdminDashboard = () => {
               <p className="text-lg font-medium">Count of Publishers : 00</p>
             </div>
           </div>
-        )}        
+        )}   
+
+        {currentSection === "countOfJobPosts" && (
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4">Count of Job Posts</h2>
+            <p className="text-lg font-medium">00</p>
+          </div>
+        )}     
       </div>
     </div>
   );
