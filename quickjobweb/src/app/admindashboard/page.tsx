@@ -642,6 +642,16 @@ const AdminDashboard = () => {
               </button>
             </form>
           </div>
+        )}
+
+         {currentSection === "clientsCount" && (
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4">Count of Clients : 00</h2>
+            <div className="flex justify-between mt-8">
+              <p className="text-lg font-medium">Count of Employee : 00</p>
+              <p className="text-lg font-medium">Count of Publishers : 00</p>
+            </div>
+          </div>
         )}        
       </div>
     </div>
